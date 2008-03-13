@@ -1,0 +1,23 @@
+--- 
+abstract: Memcached driver for CHI
+author: 
+  - Jonathan Swartz <swartz@pobox.com>
+build_requires: 
+  Test::Class: 0
+  Test::More: 0
+distribution_type: module
+generated_by: Module::Install version 0.680
+license: perl
+meta-spec: 
+  url: http://module-build.sourceforge.net/META-spec-v1.3.html
+  version: 1.3
+name: CHI-Driver-Memcached
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  List::MoreUtils: 0.13
+  Moose: 0.33
+  perl: 5.6.0
+version: 0.01

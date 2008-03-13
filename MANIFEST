@@ -1,0 +1,7 @@
+Changes
+MANIFEST
+Makefile.PL
+README
+lib/CHI/Driver/Memcached.pm
+t/00-load.t
+t/pod.t
