@@ -17,8 +17,8 @@ __PACKAGE__->meta->alias_method(
 
 __PACKAGE__->meta->make_immutable();
 
-sub _build_contained_cache {
-    my ($self) = @_;
+sub BUILD {
+    my ( $self, $params ) = @_;
 
     my $mc_params = $self->non_common_constructor_params($params);
     return Cache::Memcached->new($mc_params);
@@ -27,7 +27,8 @@ sub _build_contained_cache {
 # Unsupported methods
 #
 
-__PACKAGE__->declare_unsupported_methods(qw(dump_as_hash get_keys get_namespaces is_empty purge));
+__PACKAGE__->declare_unsupported_methods(
+    qw(dump_as_hash get_keys get_namespaces is_empty purge));
 
 # Memcached calls clear 'flush_all'
 #
