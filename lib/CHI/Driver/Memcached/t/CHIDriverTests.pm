@@ -2,6 +2,7 @@ package CHI::Driver::Memcached::t::CHIDriverTests;
 use strict;
 use warnings;
 use CHI::Test;
+use CHI::Driver::Memcached::Test::Driver;
 use base qw(CHI::t::Driver);
 
 my $testaddr = "127.0.0.1:11211";
@@ -31,11 +32,11 @@ sub clear_memcached : Test(setup) {
 sub new_cache_options {
     my $self = shift;
 
-    # CHI::Test::Memcached::Driver defines get_keys for testing purposes
+    # CHI::Driver::Memcached::Test::Driver defines get_keys for testing purposes
     return (
         $self->SUPER::new_cache_options(),
         driver       => undef,
-        driver_class => 'CHI::Test::Memcached::Driver',
+        driver_class => 'CHI::Driver::Memcached::Test::Driver',
         servers      => [$testaddr]
     );
 }
