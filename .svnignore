@@ -1,6 +1,7 @@
 *.tar.gz
 .lwpcookies
 Build
+CHI-Driver-Memcached-*
 MANIFEST
 MANIFEST.bak
 META.yml
