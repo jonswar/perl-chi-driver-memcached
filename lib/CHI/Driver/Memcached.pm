@@ -20,8 +20,15 @@ __PACKAGE__->meta->make_immutable();
 sub BUILD {
     my ( $self, $params ) = @_;
 
-    my $mc_params = $self->non_common_constructor_params($params);
-    return Cache::Memcached->new($mc_params);
+    $self->{mc_params} = $self->non_common_constructor_params($params);
+    $self->{mc_params}->{namespace} = $params->{namespace}
+      if defined( $params->{namespace} );
+}
+
+sub _build_contained_cache {
+    my ($self) = @_;
+
+    return Cache::Memcached->new( $self->{mc_params} );
 }
 
 # Unsupported methods
@@ -79,6 +86,7 @@ CHI::Driver::Memcached -- Distributed cache via memcached (memory cache daemon)
 
     my $cache = CHI->new(
         driver => 'Memcached',
+        namespace => 'products',
         servers => [ "10.0.0.15:11211", "10.0.0.15:11212", "/var/sock/memcached",
         "10.0.0.17:11211", [ "10.0.0.17:11211", 3 ] ],
         debug => 0,
@@ -91,8 +99,7 @@ A CHI driver that uses Cache::Memcached to store data in the specified memcached
 
 =head1 CONSTRUCTOR OPTIONS
 
-Any options passed to CHI->new() that aren't L<recognized by CHI|CHI/constructor>
-are passed along to L<Cache::Memcached>.  For example:
+Namespace, and any constructor options L<not recognized by CHI|CHI/constructor>, are passed along to L<Cached::Memcached-E<gt>new>. For example: 
 
 =over
 
