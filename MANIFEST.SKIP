@@ -1,0 +1,23 @@
+^data
+^dist
+^inc/\.author
+^perlcriticrc
+^perltidyrc
+^tmp
+^VERSION
+
+# Backup files, etc.
+~$
+(^|/)#
+(^|/)\.
+\.bak$
+\.tar\.gz$
+
+# SVN cruft
+^\.svn
+
+# MakeMaker cruft
+^Makefile$
+^Makefile.old$
+^blib
+^MANIFEST.SKIP$
