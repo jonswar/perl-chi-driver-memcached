@@ -4,6 +4,8 @@ Revision history for CHI-Driver-Memcached
 
 0.02  Sep 24, 2008
 
+- Require CHI 0.81 - will not work with previous versions
+
 0.01  Sep 23, 2008
 
 - Initial version
