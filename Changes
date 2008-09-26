@@ -2,7 +2,7 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
-0.03  Sep 24, 2008
+0.03  Sep 26, 2008
 
 - Require Cache::Memcached
 - Skip test if memcached not running
