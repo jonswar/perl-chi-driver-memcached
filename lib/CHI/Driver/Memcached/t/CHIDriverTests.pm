@@ -12,13 +12,14 @@ sub required_modules {
 }
 
 sub connect_to_memcached : Test(startup) {
+    my $self = shift;
     require IO::Socket::INET;
     my $msock = IO::Socket::INET->new(
         PeerAddr => $testaddr,
         Timeout  => 3
     );
     if ( !$msock ) {
-        die "No memcached instance running at $testaddr\n";
+        $self->SKIP_ALL("No memcached instance running at $testaddr");
     }
 }
 
