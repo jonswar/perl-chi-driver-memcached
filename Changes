@@ -2,7 +2,10 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
-0.04  Sep 26, 2008
+0.04  Dec 30, 2008
+
+- Moved source to git
+- Append colon to namespace before passing to Cache::Memcached
 
 0.03  Sep 26, 2008
 
