@@ -21,8 +21,7 @@ sub BUILD {
     my ( $self, $params ) = @_;
 
     $self->{mc_params} = $self->non_common_constructor_params($params);
-    $self->{mc_params}->{namespace} = $params->{namespace}
-      if defined( $params->{namespace} );
+    $self->{mc_params}->{namespace} = $self->{namespace} . ":";
 }
 
 sub _build_contained_cache {
@@ -99,7 +98,7 @@ A CHI driver that uses Cache::Memcached to store data in the specified memcached
 
 =head1 CONSTRUCTOR OPTIONS
 
-Namespace, and any constructor options L<not recognized by CHI|CHI/constructor>, are passed along to L<Cached::Memcached-E<gt>new>. For example: 
+Namespace, appended with ":", is passed along to L<Cached::Memcached-E<gt>new>, along with any constructor options L<not recognized by CHI|CHI/constructor>. For example: 
 
 =over
 
