@@ -144,13 +144,28 @@ These standard CHI methods cannot currently be supported by memcached.
 
 =back
 
-=head1 SEE ALSO
+=head1 SUPPORT AND DOCUMENTATION
 
-L<CHI|CHI>, L<Cache::Memcached|Cache::Memcached>
+Questions and feedback are welcome, and should be directed to the perl-cache mailing list:
+
+    http://groups.google.com/group/perl-cache-discuss
+
+Bugs and feature requests will be tracked at RT:
+
+    http://rt.cpan.org/NoAuth/Bugs.html?Dist=CHI-Driver-Memcached
+
+The latest source code can be browsed and fetched at:
+
+    http://github.com/jonswar/perl-chi-driver-memcached/tree/master
+    git clone git://github.com/jonswar/perl-chi-driver-memcached.git
 
 =head1 AUTHOR
 
 Jonathan Swartz
+
+=head1 SEE ALSO
+
+L<CHI|CHI>, L<Cache::Memcached|Cache::Memcached>
 
 =head1 COPYRIGHT & LICENSE
 
