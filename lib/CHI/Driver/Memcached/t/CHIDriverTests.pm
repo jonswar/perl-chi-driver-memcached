@@ -11,6 +11,8 @@ sub required_modules {
     return { 'Cache::Memcached' => undef, 'IO::Socket::INET' => undef };
 }
 
+sub supports_get_namespaces { 0 }
+
 sub connect_to_memcached : Test(startup) {
     my $self = shift;
     require IO::Socket::INET;
@@ -65,6 +67,19 @@ sub test_get_keys : Test(1) {
       $self->SUPER::new_cache( driver => 'Memcached', servers => [$testaddr] );
     throws_ok(
         sub { $cache->get_keys() },
+        qr/not supported/,
+        "get_keys not supported"
+    );
+}
+
+sub test_namespaces : Test(1) {
+    my $self = shift;
+
+    # Make sure we get a 'not supported' error with regular memcached driver
+    my $cache =
+      $self->SUPER::new_cache( driver => 'Memcached', servers => [$testaddr] );
+    throws_ok(
+        sub { $cache->get_namespaces() },
         qr/not supported/,
         "get_keys not supported"
     );

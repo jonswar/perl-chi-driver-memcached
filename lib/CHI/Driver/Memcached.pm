@@ -1,19 +1,16 @@
 package CHI::Driver::Memcached;
+use CHI;
 use Cache::Memcached;
 use Carp;
-use Moose;
+use Mouse;
 use strict;
 use warnings;
 
 our $VERSION = '0.05';
 
-extends 'CHI::Driver';
+has 'memd' => (is => 'ro');
 
-with 'CHI::Driver::Role::CacheContainer' =>
-  { excludes => [qw( clear get_keys get_namespaces )] };
-
-__PACKAGE__->meta->alias_method(
-    'memd' => __PACKAGE__->can('_contained_cache') );
+extends 'CHI::Driver::Base::CacheContainer';
 
 __PACKAGE__->meta->make_immutable();
 
@@ -22,6 +19,7 @@ sub BUILD {
 
     $self->{mc_params} = $self->non_common_constructor_params($params);
     $self->{mc_params}->{namespace} = $self->{namespace} . ":";
+    $self->{memd} = $self->{_contained_cache} = $self->_build_contained_cache;
 }
 
 sub _build_contained_cache {
