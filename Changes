@@ -4,6 +4,8 @@ Revision history for CHI-Driver-Memcached
 
 0.05  Dec 30, 2008
 
+- Switch to Mouse, to match CHI 0.10
+
 0.04  Dec 30, 2008
 
 - Moved source to git
