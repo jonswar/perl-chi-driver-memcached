@@ -10,7 +10,7 @@ perl_version '5.006';
 build_requires 'Test::Class' => 0;
 build_requires 'Test::More'  => 0;
 
-requires 'CHI'    => '0.10';
+requires 'CHI'    => '0.23';
 requires 'Cache::Memcached'  => '1.14';
 
 license 'perl';
