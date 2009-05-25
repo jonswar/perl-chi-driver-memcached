@@ -6,7 +6,7 @@ use CHI::Util qw(dps);
 use base qw(CHI::Driver::Memcached);
 
 __PACKAGE__->meta->make_immutable;
-    
+
 # Memcached doesn't support get_keys. For testing purposes, define get_keys
 # and clear by checking for all keys used during testing.
 #

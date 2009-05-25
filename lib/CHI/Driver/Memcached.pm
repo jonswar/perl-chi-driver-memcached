@@ -68,11 +68,14 @@ CHI::Driver::Memcached -- Distributed cache via memcached (memory cache daemon)
 
 =head1 DESCRIPTION
 
-A CHI driver that uses Cache::Memcached to store data in the specified memcached server(s).
+A CHI driver that uses Cache::Memcached to store data in the specified
+memcached server(s).
 
 =head1 CONSTRUCTOR OPTIONS
 
-Namespace, appended with ":", is passed along to L<Cached::Memcached-E<gt>new>, along with any constructor options L<not recognized by CHI|CHI/constructor>. For example: 
+Namespace, appended with ":", is passed along to L<Cached::Memcached-E<gt>new>,
+along with any constructor options L<not recognized by CHI|CHI/constructor>.
+For example:
 
 =over
 
@@ -92,8 +95,8 @@ Namespace, appended with ":", is passed along to L<Cached::Memcached-E<gt>new>, 
 
 =item memd
 
-Returns a handle to the underlying Cache::Memcached object. You can use this to call memcached-specific methods that
-are not supported by the general API, e.g.
+Returns a handle to the underlying Cache::Memcached object. You can use this to
+call memcached-specific methods that are not supported by the general API, e.g.
 
     $self->memd->incr("key");
     my $stats = $self->memd->stats();
@@ -120,7 +123,8 @@ These standard CHI methods cannot currently be supported by memcached.
 
 =head1 SUPPORT AND DOCUMENTATION
 
-Questions and feedback are welcome, and should be directed to the perl-cache mailing list:
+Questions and feedback are welcome, and should be directed to the perl-cache
+mailing list:
 
     http://groups.google.com/group/perl-cache-discuss
 
@@ -145,11 +149,11 @@ L<CHI|CHI>, L<Cache::Memcached|Cache::Memcached>
 
 Copyright (C) 2007 Jonathan Swartz.
 
-CHI::Driver::Memcached is provided "as is" and without any express or implied warranties, including, without
-limitation, the implied warranties of merchantibility and fitness for a particular
-purpose.
+CHI::Driver::Memcached is provided "as is" and without any express or implied
+warranties, including, without limitation, the implied warranties of
+merchantibility and fitness for a particular purpose.
 
-This program is free software; you can redistribute it and/or modify it under the same
-terms as Perl itself.
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
 
 =cut
