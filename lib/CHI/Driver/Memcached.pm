@@ -6,7 +6,7 @@ use Moose;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 has 'memd' => ( is => 'ro' );
 
