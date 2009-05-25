@@ -5,6 +5,8 @@ use Moose;
 use CHI::Util qw(dps);
 use base qw(CHI::Driver::Memcached);
 
+__PACKAGE__->meta->make_immutable;
+    
 # Memcached doesn't support get_keys. For testing purposes, define get_keys
 # and clear by checking for all keys used during testing.
 #
@@ -32,7 +34,7 @@ my @all_test_keys = (
 sub get_keys {
     my $self = shift;
 
-    my $values = $self->get_multi_hashref(\@all_test_keys);
+    my $values = $self->get_multi_hashref( \@all_test_keys );
     my @defined_keys = grep { defined $values->{$_} } keys(%$values);
     return @defined_keys;
 }
