@@ -7,6 +7,8 @@ use base qw(CHI::t::Driver);
 
 my $testaddr = "127.0.0.1:11211";
 
+sub testing_driver_class { 'CHI::Driver::Memcached' }
+
 sub required_modules {
     return { 'Cache::Memcached' => undef, 'IO::Socket::INET' => undef };
 }
