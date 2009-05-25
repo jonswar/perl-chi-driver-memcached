@@ -2,7 +2,7 @@ package CHI::Driver::Memcached;
 use CHI;
 use Cache::Memcached;
 use Carp;
-use Mouse;
+use Moose;
 use strict;
 use warnings;
 
@@ -11,6 +11,11 @@ our $VERSION = '0.06';
 has 'memd' => ( is => 'ro' );
 
 extends 'CHI::Driver::Base::CacheContainer';
+
+# Unsupported methods
+#
+__PACKAGE__->declare_unsupported_methods(
+    qw(dump_as_hash get_keys get_namespaces is_empty clear purge));
 
 __PACKAGE__->meta->make_immutable();
 
@@ -28,43 +33,14 @@ sub _build_contained_cache {
     return Cache::Memcached->new( $self->{mc_params} );
 }
 
-# Unsupported methods
-#
-
-__PACKAGE__->declare_unsupported_methods(
-    qw(dump_as_hash get_keys get_namespaces is_empty purge));
-
-# Memcached calls clear 'flush_all'
-#
-
-sub clear {
-    my ($self) = @_;
-
-    $self->memd->flush_all();
-}
-
 # Memcached supports fast multiple get
 #
 
-sub get_multi_hashref {
+sub fetch_multi_hashref {
     my ( $self, $keys ) = @_;
     croak "must specify keys" unless defined($keys);
 
-    my $keyvals = $self->memd->get_multi(@$keys);
-    foreach my $key ( keys(%$keyvals) ) {
-        if ( defined $keyvals->{$key} ) {
-            $keyvals->{$key} = $self->get( $key, data => $keyvals->{$key} );
-        }
-    }
-    return $keyvals;
-}
-
-sub get_multi_arrayref {
-    my ( $self, $keys ) = @_;
-    croak "must specify keys" unless defined($keys);
-
-    my $keyvals = $self->get_multi_hashref($keys);
-    return [ map { $keyvals->{$_} } @$keys ];
+    return $self->memd->get_multi(@$keys);
 }
 
 1;
