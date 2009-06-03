@@ -2,14 +2,10 @@ package CHI::Driver::Memcached::Test::Driver;
 use strict;
 use warnings;
 use Moose;
-use CHI::Util qw(dps);
+use CHI::t::Driver;
 use base qw(CHI::Driver::Memcached);
 
 __PACKAGE__->meta->make_immutable;
-
-# Memcached doesn't support get_keys. For testing purposes, define get_keys
-# and clear by checking for all keys used during testing.
-#
 
 # Reverse declare_unsupported_methods
 #
@@ -22,14 +18,12 @@ foreach my $method (qw(dump_as_hash is_empty purge)) {
     };
 }
 
-my @all_test_keys = (
-    'space',    'a',
-    0,          1,
-    'medium',   'medium2',
-    'mixed',    scalar( 'ab' x 100 ),
-    'arrayref', 'hashref',
-    ( map { "done$_" } ( 0 .. 2 ) ), ( map { "key$_" } ( 0 .. 20 ) )
-);
+# Memcached doesn't support get_keys. For testing purposes, define get_keys
+# and clear by checking for all keys used during testing. Note, some keys
+# are changed in CHIDriverTests::set_standard_keys_and_values.
+#
+my @all_test_keys =
+  ( CHI::t::Driver->all_test_keys(), 'mixed', 'space', scalar( 'ab' x 100 ) );
 
 sub get_keys {
     my $self = shift;
