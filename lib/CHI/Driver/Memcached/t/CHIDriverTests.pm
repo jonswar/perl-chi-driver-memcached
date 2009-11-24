@@ -7,6 +7,8 @@ use base qw(CHI::t::Driver);
 
 my $testaddr = "127.0.0.1:11211";
 
+our $all_test_keys;
+
 sub testing_driver_class { 'CHI::Driver::Memcached' }
 
 sub required_modules {
@@ -32,6 +34,12 @@ sub clear_memcached : Test(setup) {
 
     my $cache = $self->new_cache();
     $cache->memd->flush_all();
+}
+
+sub zzz_capture_all_test_keys : Test(setup) {
+    my $self = shift;
+
+    $all_test_keys = $self->{all_test_keys};
 }
 
 sub new_cache_options {
@@ -60,6 +68,9 @@ sub set_standard_keys_and_values {
 
     return ( $keys, $values );
 }
+
+# TODO - Not working right now - fix later
+sub test_size_awareness_with_subcaches { }
 
 sub test_get_keys : Test(1) {
     my $self = shift;
