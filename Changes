@@ -4,6 +4,9 @@ Revision history for CHI-Driver-Memcached
 
 0.09  May 27, 2009
 
+- fix failing tests
+- depend on CHI 0.31
+
 0.08  May 27, 2009
 
 - depend on CHI 0.241, for fuller set of dependencies
