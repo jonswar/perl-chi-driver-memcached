@@ -2,6 +2,8 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
+0.10  Nov 23, 2009
+
 0.09  Nov 23, 2009
 
 - fix failing tests
