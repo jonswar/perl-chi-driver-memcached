@@ -1,6 +1,5 @@
-package CHI::Driver::Memcached;
+package CHI::Driver::Memcached::Base;
 use CHI;
-use Cache::Memcached;
 use Carp;
 use Moose;
 use strict;
@@ -8,7 +7,8 @@ use warnings;
 
 our $VERSION = '0.10';
 
-has 'memd' => ( is => 'ro', init_arg => undef );
+has 'memd'       => ( is => 'ro', init_arg => undef );
+has 'memd_class' => ( is => 'ro', default  => 'Cache::Memcached' );
 
 extends 'CHI::Driver::Base::CacheContainer';
 
@@ -30,7 +30,8 @@ sub BUILD {
 sub _build_contained_cache {
     my ($self) = @_;
 
-    return Cache::Memcached->new( $self->{mc_params} );
+    Class::MOP::load_class( $self->memd_class );
+    return $self->memd_class->new( $self->{mc_params} );
 }
 
 # Memcached supports fast multiple get
