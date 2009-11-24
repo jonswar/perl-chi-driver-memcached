@@ -34,12 +34,6 @@ sub clear_memcached : Test(setup) {
     $cache->memd->flush_all();
 }
 
-sub zzz_capture_all_test_keys : Test(setup) {
-    my $self = shift;
-
-    $all_test_keys = $self->{all_test_keys};
-}
-
 sub new_cache_options {
     my $self = shift;
 
