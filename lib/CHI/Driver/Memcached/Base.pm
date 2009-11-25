@@ -7,8 +7,8 @@ use warnings;
 
 our $VERSION = '0.10';
 
-has 'memd'       => ( is => 'ro', init_arg => undef );
-has 'memd_class' => ( is => 'ro', default  => 'Cache::Memcached' );
+has 'memd' => ( is => 'ro', init_arg => undef );
+has 'memd_class' => ( is => 'ro' );
 
 extends 'CHI::Driver::Base::CacheContainer';
 
