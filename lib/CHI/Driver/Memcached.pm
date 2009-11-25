@@ -23,7 +23,7 @@ CHI::Driver::Memcached -- Distributed cache via memcached (memory cache daemon)
     use CHI;
 
     my $cache = CHI->new(
-        driver => 'Memcached',
+        driver => 'Memcached',   # or 'Memcached::Fast', or 'Memcached::libmemcached'
         namespace => 'products',
         servers => [ "10.0.0.15:11211", "10.0.0.15:11212", "/var/sock/memcached",
         "10.0.0.17:11211", [ "10.0.0.17:11211", 3 ] ],
@@ -36,11 +36,16 @@ CHI::Driver::Memcached -- Distributed cache via memcached (memory cache daemon)
 A CHI driver that uses Cache::Memcached to store data in the specified
 memcached server(s).
 
+L<CHI::Driver::Memcached::Fast> and L<CHI::Driver::Memcached::libmemcached> are
+also available as part of this distribution. They work with other Memcached
+clients and support a similar feature set. Documentation for all three modules
+is presented below.
+
 =head1 CONSTRUCTOR OPTIONS
 
-Namespace, appended with ":", is passed along to L<Cached::Memcached-E<gt>new>,
-along with any constructor options L<not recognized by CHI|CHI/constructor>.
-For example:
+Namespace, appended with ":", is passed along to the Cached::Memcached::*
+constructor, along with any constructor options L<not recognized by
+CHI|CHI/constructor>.  For example:
 
 =over
 
@@ -62,8 +67,9 @@ Besides the standard CHI methods:
 
 =item memd
 
-Returns a handle to the underlying Cache::Memcached object. You can use this to
-call memcached-specific methods that are not supported by the general API, e.g.
+Returns a handle to the underlying Cache::Memcached::* object. You can use this
+to call memcached-specific methods that are not supported by the general API,
+e.g.
 
     $self->memd->incr("key");
     my $stats = $self->memd->stats();
@@ -90,12 +96,6 @@ because there is no way to get a list of stored keys.
 =item purge
 
 =back
-
-=head1 ALTERNATE MEMCACHED CLIENTS
-
-L<CHI::Driver::Memcached::Fast> and L<CHI::Driver::Memcached::libmemcached> are
-also available as part of this distribution. They work with other (ostensibly
-faster) Memcached clients and support a similar feature set.
 
 =head1 SUPPORT AND DOCUMENTATION
 
