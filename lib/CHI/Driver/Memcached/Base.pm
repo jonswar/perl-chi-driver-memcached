@@ -8,7 +8,8 @@ use warnings;
 our $VERSION = '0.10';
 
 has 'memd' => ( is => 'ro', init_arg => undef );
-has 'memd_class' => ( is => 'ro' );
+has 'memd_class'  => ( is => 'ro' );
+has 'memd_params' => ( is => 'ro' );
 
 extends 'CHI::Driver::Base::CacheContainer';
 
@@ -22,8 +23,8 @@ __PACKAGE__->meta->make_immutable();
 sub BUILD {
     my ( $self, $params ) = @_;
 
-    $self->{mc_params} = $self->non_common_constructor_params($params);
-    $self->{mc_params}->{namespace} = $self->{namespace} . ":";
+    $self->{memd_params} ||= $self->non_common_constructor_params($params);
+    $self->{memd_params}->{namespace} ||= $self->{namespace} . ":";
     $self->{memd} = $self->{_contained_cache} = $self->_build_contained_cache;
 }
 
@@ -31,7 +32,7 @@ sub _build_contained_cache {
     my ($self) = @_;
 
     Class::MOP::load_class( $self->memd_class );
-    return $self->memd_class->new( $self->{mc_params} );
+    return $self->memd_class->new( $self->memd_params );
 }
 
 # Memcached supports fast multiple get

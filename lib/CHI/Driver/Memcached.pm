@@ -45,19 +45,11 @@ is presented below.
 
 Namespace, appended with ":", is passed along to the Cached::Memcached::*
 constructor, along with any constructor options L<not recognized by
-CHI|CHI/constructor>.  For example:
+CHI|CHI/constructor> - for example I<servers>, I<compress_threshold> and
+I<debug>.
 
-=over
-
-=item compress_threshold
-
-=item debug
-
-=item no_rehash
-
-=item servers
-
-=back
+If you need more control over the options passed to Cache::Memcached::*, you
+may specify a hash directly in C<memd_params>.
 
 =head1 METHODS
 

@@ -4,9 +4,9 @@ Revision history for CHI-Driver-Memcached
 
 0.10  Nov 23, 2009
 
-- add CHI::Driver::Memcached::Fast and CHI::Driver::Memcached::libmemcached as part
-  of this distribution
-- depend on CHI 0.32 for non_common_constructor_params fix
+- support CHI::Driver::Memcached::Fast and CHI::Driver::Memcached::libmemcached
+- allow memd_params to be passed explicitly
+- depend on CHI 0.33 for non_common_constructor_params fix
 
 0.09  Nov 23, 2009
 
