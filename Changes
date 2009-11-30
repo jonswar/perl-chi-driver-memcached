@@ -2,6 +2,8 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
+0.11  Nov 29, 2009
+
 0.10  Nov 29, 2009
 
 - support CHI::Driver::Memcached::Fast and CHI::Driver::Memcached::libmemcached
