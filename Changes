@@ -4,6 +4,8 @@ Revision history for CHI-Driver-Memcached
 
 0.11  Nov 29, 2009
 
+- skip tests if particular memcached library not available
+
 0.10  Nov 29, 2009
 
 - support CHI::Driver::Memcached::Fast and CHI::Driver::Memcached::libmemcached

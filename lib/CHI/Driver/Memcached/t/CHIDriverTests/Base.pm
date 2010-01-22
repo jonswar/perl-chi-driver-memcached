@@ -12,6 +12,7 @@ sub required_modules {
     my $class = shift;
     return {
         $class->testing_driver_class => undef,
+        $class->memcached_class      => undef,
         'IO::Socket::INET'           => undef
     };
 }
