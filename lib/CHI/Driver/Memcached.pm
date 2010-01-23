@@ -3,7 +3,7 @@ use Moose;
 use strict;
 use warnings;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 extends 'CHI::Driver::Memcached::Base';
 has '+memd_class' => ( default => 'Cache::Memcached' );
