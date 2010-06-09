@@ -4,7 +4,8 @@ Revision history for CHI-Driver-Memcached
 
 0.12  Jun 9, 2010
 
-- skip tests for new test keys in CHI 0.35 containing control characters or whitespace
+- define max_key_length for auto-digesting in CHI >0.35
+- skip tests for new test keys in CHI >0.35 containing control characters or whitespace
 
 0.11  Jan 22, 2010
 
