@@ -26,6 +26,7 @@ sub BUILD {
     $self->{memd_params} ||= $self->non_common_constructor_params($params);
     $self->{memd_params}->{namespace} ||= $self->{namespace} . ":";
     $self->{memd} = $self->{_contained_cache} = $self->_build_contained_cache;
+    $self->{max_key_length} = 248 - length( $self->{namespace} );
 }
 
 sub _build_contained_cache {
