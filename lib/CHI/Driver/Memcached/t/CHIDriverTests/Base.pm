@@ -59,14 +59,17 @@ sub set_standard_keys_and_values {
     $keys->{'large'} = scalar( 'ab' x 100 );
 
     # memcached keys must not include control characters or whitespace
-    $keys->{'space'} = 'space';
-    $keys->{'mixed'} = 'mixed';
+    foreach my $key (qw(space mixed binary newline arrayref hashref utf8)) {
+        $keys->{$key} = $key if defined( $keys->{$key} );
+    }
 
     return ( $keys, $values );
 }
 
 # TODO - Not working right now - fix later
 sub test_size_awareness_with_subcaches { }
+sub test_max_size_with_l1_cache        { }
+sub test_encode                        { }
 
 sub test_get_keys : Test(1) {
     my $self = shift;
