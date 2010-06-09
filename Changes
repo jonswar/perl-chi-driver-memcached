@@ -2,7 +2,7 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
-0.12  Jan 22, 2010
+0.12  Jun 9, 2010
 
 - skip tests for new test keys in CHI 0.35 containing control characters or whitespace
 
