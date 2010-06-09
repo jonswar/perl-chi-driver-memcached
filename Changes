@@ -2,6 +2,8 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
+0.13  Jun 9, 2010
+
 0.12  Jun 9, 2010
 
 - define max_key_length for auto-digesting in CHI >0.35
