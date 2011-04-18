@@ -2,6 +2,8 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
+0.14  Apr 18, 2011
+
 0.13  Apr 18, 2011
 
 - indicate support for expires_on_backend
