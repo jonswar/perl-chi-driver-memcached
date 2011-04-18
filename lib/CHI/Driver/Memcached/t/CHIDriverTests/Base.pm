@@ -17,7 +17,8 @@ sub required_modules {
     };
 }
 
-sub supports_get_namespaces { 0 }
+sub supports_get_namespaces     { 0 }
+sub supports_expires_on_backend { 1 }
 
 sub connect_to_memcached : Test(startup) {
     my $self = shift;

@@ -3,9 +3,8 @@ use Moose;
 use strict;
 use warnings;
 
-our $VERSION = '0.13';
-
 extends 'CHI::Driver::Memcached::Base';
+
 has '+memd_class' => ( default => 'Cache::Memcached' );
 
 __PACKAGE__->meta->make_immutable();

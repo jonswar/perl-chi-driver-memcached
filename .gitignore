@@ -15,8 +15,8 @@ blib*
 cover_db
 cp.yml
 data
-dist
 inc
 pm_to_blib*
+release
 tmp
 wiki
