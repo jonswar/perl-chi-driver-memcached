@@ -2,7 +2,7 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
-0.13  Jun 9, 2010
+0.13  Apr 18, 2011
 
 - indicate support for expires_on_backend
 - migrate to Dist::Zilla
