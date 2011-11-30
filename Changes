@@ -2,7 +2,9 @@ Revision history for CHI-Driver-Memcached
 
 ** denotes an incompatible change
 
-0.14  Apr 18, 2011
+0.14  Nov 30, 2011
+
+- allow max_key_length to be overriden
 
 0.13  Apr 18, 2011
 
