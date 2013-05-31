@@ -14,7 +14,7 @@ extends 'CHI::Driver::Base::CacheContainer';
 # Unsupported methods
 #
 __PACKAGE__->declare_unsupported_methods(
-    qw(dump_as_hash get_keys get_namespaces is_empty clear purge));
+    qw(dump_as_hash get_keys get_namespaces is_empty purge));
 
 __PACKAGE__->meta->make_immutable();
 
@@ -43,6 +43,11 @@ sub fetch_multi_hashref {
     croak "must specify keys" unless defined($keys);
 
     return $self->memd->get_multi(@$keys);
+}
+
+sub clear {
+    my ( $self) = @_;
+    return $self->memd->flush_all();
 }
 
 1;
