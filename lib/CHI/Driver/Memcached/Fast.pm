@@ -1,4 +1,5 @@
 package CHI::Driver::Memcached::Fast;
+
 use Moose;
 use strict;
 use warnings;

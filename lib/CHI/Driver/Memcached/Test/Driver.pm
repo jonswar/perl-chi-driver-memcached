@@ -1,4 +1,5 @@
 package CHI::Driver::Memcached::Test::Driver;
+
 use strict;
 use warnings;
 use Moose;

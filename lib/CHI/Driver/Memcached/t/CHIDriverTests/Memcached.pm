@@ -1,4 +1,5 @@
 package CHI::Driver::Memcached::t::CHIDriverTests::Memcached;
+
 use strict;
 use warnings;
 use base qw(CHI::Driver::Memcached::t::CHIDriverTests::Base);
