@@ -68,6 +68,17 @@ sub set_standard_keys_and_values {
     return ( $keys, $values );
 }
 
+sub extra_test_keys {
+    my ($self) = @_;
+
+    # Newer libmemcached does not like 0-length keys...
+    my @keys = grep {
+        length $_
+    } $self->SUPER::extra_test_keys;
+
+    return @keys;
+}
+
 # TODO - Not working right now - fix later
 sub test_size_awareness_with_subcaches { }
 sub test_max_size_with_l1_cache        { }
