@@ -2,7 +2,7 @@ package CHI::Driver::Memcached::Test::Driver::Base;
 
 use strict;
 use warnings;
-use Moose::Role;
+use Moo::Role;
 use CHI::t::Driver;
 use CHI::Driver::Memcached::t::CHIDriverTests::Base;
 
