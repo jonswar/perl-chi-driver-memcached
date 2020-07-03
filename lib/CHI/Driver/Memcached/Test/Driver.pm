@@ -2,12 +2,10 @@ package CHI::Driver::Memcached::Test::Driver;
 
 use strict;
 use warnings;
-use Moose;
+use Moo;
 use CHI::t::Driver;
 use CHI::Driver::Memcached::t::CHIDriverTests;
 use base qw(CHI::Driver::Memcached);
-
-__PACKAGE__->meta->make_immutable;
 
 # Reverse declare_unsupported_methods
 #

@@ -3,7 +3,7 @@ package CHI::Driver::Memcached::Base;
 use CHI;
 use Carp;
 use Class::Load;
-use Moose;
+use Moo;
 use strict;
 use warnings;
 
@@ -17,8 +17,6 @@ extends 'CHI::Driver::Base::CacheContainer';
 #
 __PACKAGE__->declare_unsupported_methods(
     qw(dump_as_hash get_keys get_namespaces is_empty clear purge));
-
-__PACKAGE__->meta->make_immutable();
 
 sub BUILD {
     my ( $self, $params ) = @_;
